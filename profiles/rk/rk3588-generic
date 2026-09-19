@@ -11,3 +11,6 @@ build_type=RelWithDebInfo
 
 [tool_requires]
 *: arm-gnu-toolchain-aarch64-none-linux-gnu/11.3.rel1
+
+[buildenv]
+RP_PLATFORM=rk3588

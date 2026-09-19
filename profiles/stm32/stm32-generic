@@ -8,3 +8,6 @@ compiler.version=11
 compiler.libcxx=libstdc++11
 compiler.cppstd=gnu17
 build_type=RelWithDebInfo
+
+[buildenv]
+RP_PLATFORM=stm32
