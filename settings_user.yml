@@ -3,6 +3,6 @@ robotpilots:
     stm32: [
       "generic"
     ]
-    rk3576: [
+    rk3588: [
       "generic"
     ]
