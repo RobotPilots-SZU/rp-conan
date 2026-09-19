@@ -1,0 +1,10 @@
+{% set platform = "stm32" %}
+
+[settings]
+os=Generic
+arch=armv7
+compiler=gcc
+compiler.version=11
+compiler.libcxx=libstdc++11
+compiler.cppstd=gnu17
+build_type=RelWithDebInfo

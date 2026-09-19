@@ -1,0 +1,8 @@
+robotpilots:
+  platform:
+    stm32: [
+      "generic"
+    ]
+    rk3576: [
+      "generic"
+    ]

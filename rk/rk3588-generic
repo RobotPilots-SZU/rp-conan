@@ -1,0 +1,13 @@
+{% set platform = "rk3588" %}
+
+[settings]
+os=Gerneric
+arch=armv7
+compiler=gcc
+compiler.version=11
+compiler.libcxx=libstdc++11
+compiler.cppstd=gnu17
+build_type=RelWithDebInfo
+
+[tool_requires]
+*: arm-gnu-toolchain-aarch64-none-linux-gnu/11.3.rel1
