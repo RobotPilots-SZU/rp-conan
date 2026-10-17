@@ -1,7 +1,5 @@
-{% set platform = "stm32" %}
-
 [settings]
-os=Generic
+os=baremetal
 arch=armv7
 compiler=gcc
 compiler.version=11
@@ -9,5 +7,9 @@ compiler.libcxx=libstdc++11
 compiler.cppstd=gnu17
 build_type=RelWithDebInfo
 
+[conf]
+tools.build:compiler_executables={"c": "arm-none-eabi-gcc", "cpp": "arm-none-eabi-g++"}
+tools.cmake.cmaketoolchain:system_name=Generic
+
 [buildenv]
-RP_PLATFORM=stm32
+RP_PLATFORM={{ rp_platform }}

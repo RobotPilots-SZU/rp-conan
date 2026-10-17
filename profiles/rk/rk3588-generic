@@ -1,8 +1,8 @@
-{% set platform = "rk3588" %}
+{% set rp_platform = "rk3588" %}
 
 [settings]
-os=Gerneric
-arch=armv7
+os=Linux
+arch=armv8
 compiler=gcc
 compiler.version=11
 compiler.libcxx=libstdc++11
@@ -12,5 +12,12 @@ build_type=RelWithDebInfo
 [tool_requires]
 *: arm-gnu-toolchain-aarch64-none-linux-gnu/11.3.rel1
 
+[conf]
+tools.build:compiler_executables={"c": "aarch64-none-linux-gnu-gcc", "cpp": "aarch64-none-linux-gnu-g++"}
+tools.cmake.cmaketoolchain:system_name=Linux
+
+user.rp:platform={{ rp_platform }}
+tools.info.package_id:confs=["user.rp:platform", "tools.build:cflags", "tools.build:cxxflags", "tools.build:exelinkflags"]
+
 [buildenv]
-RP_PLATFORM=rk3588
+RP_PLATFORM={{ rp_platform }}

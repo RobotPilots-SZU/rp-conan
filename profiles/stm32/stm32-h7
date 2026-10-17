@@ -1,0 +1,30 @@
+{% set rp_platform = "stm32" %}
+
+[settings]
+os=baremetal
+arch=armv7
+compiler=gcc
+compiler.version=11
+compiler.libcxx=libstdc++11
+compiler.cppstd=gnu17
+build_type=RelWithDebInfo
+
+[options]
+*:shared=False
+
+[conf]
+user.rp:platform={{ rp_platform }}
+
+tools.build:compiler_executables={"c": "arm-none-eabi-gcc", "cpp": "arm-none-eabi-g++"}
+
+tools.build:cflags=["-mcpu=cortex-m7", "-mthumb", "-mfpu=fpv5-d16", "-mfloat-abi=hard"]
+tools.build:cxxflags=["-mcpu=cortex-m7", "-mthumb", "-mfpu=fpv5-d16", "-mfloat-abi=hard"]
+tools.build:exelinkflags=["-mcpu=cortex-m7", "-mthumb", "-mfpu=fpv5-d16", "-mfloat-abi=hard"]
+
+tools.cmake.cmaketoolchain:system_name=Generic
+tools.cmake.cmaketoolchain:extra_variables={"CMAKE_TRY_COMPILE_TARGET_TYPE": "STATIC_LIBRARY"}
+
+tools.info.package_id:confs=["user.rp:platform", "tools.build:cflags", "tools.build:cxxflags", "tools.build:exelinkflags"]
+
+[buildenv]
+RP_PLATFORM={{ rp_platform }}

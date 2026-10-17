@@ -1,5 +1,0 @@
-robotpilots:
-  platform: [
-    "stm32",
-    "rk3588"
-  ]
